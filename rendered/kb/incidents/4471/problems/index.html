@@ -47,7 +47,7 @@
 <ul><li><strong><code>parser</code>: the month-first parser.</strong> The shared parser reads every date month first. Every tenant on file writes the day first, so a booking for 7 April goes out on 4 July. Reports from the app, by email, and from booking-v2 forms.</li><li><strong><code>hint</code>: the booking-v3 date hint.</strong> The booking-v3 form prints <code>MM/DD/YYYY</code> under its date field. The tenant's people type what the hint says, and the form reads it the tenant's way, day first. Same symptom, a different bug: the parser fix does not touch it. Only reports sent through the form by booking-v3 tenants.</li><li><strong><code>shift</code>: the one-day shift.</strong> The date moves by one day, not a swap of day and month: a Tuesday shown as a Monday, a client in Lisbon and one in Toronto who got different days, an invite that arrived before its booking. That is a time zone, not a date format. The desk already read these five as a one-day move. They stay counted under <code>parser</code>, where the desk files them by tenant, and they have their own ticket.</li></ul>
 <h2>For the desk</h2>
 <ul><li>Intake's tag is a guess from the reporter's browser. The tenant's locale and booking form decide the cause; look them up before you merge.</li><li>Read the body before you merge into a big ticket. The same words ("wrong day") cover three bugs here.</li><li>The export repeats rows across pages. Count by report id.</li></ul>
-<p class="stamp">desk ref <b>DR-SWWW-QJGP</b></p>
+<p class="stamp">desk ref <b>DR-EETZ-GPZ7</b></p>
 </main>
 <footer>Pages are written by people. Tables and charts are built from data at render time.</footer>
 </div></body></html>

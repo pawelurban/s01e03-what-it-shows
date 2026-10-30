@@ -4,7 +4,7 @@ title: '#4471 · three problems, not one'
 owner: support desk
 status: draft
 reviewed: 2026-10-30
-signature: pawelurban
+signature: v1.eyJzdWIiOiIzOTI3IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTMzNzE5MTAsImV4cCI6MTc5MzQ1ODMxMH0.N0dyjsK_fyK65hsQuFxUhf7GEiYXhXaB79krviS93Aw
 ---
 
 <script>
