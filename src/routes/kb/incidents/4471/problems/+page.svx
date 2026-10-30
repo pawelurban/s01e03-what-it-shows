@@ -18,6 +18,7 @@ signature: pawelurban
 
 [#4471](/kb/incidents/4471) is marked known: one bug, one fix queued. Read by tenant, form and
 symptom, the reports it merged are three problems. The queued parser fix closes only the first.
+Counts follow the desk's own view of the export.
 
 <Callout kind="warn">
 Not one issue. Each problem now has its own ticket, with the reports it covers.
@@ -39,7 +40,8 @@ Not one issue. Each problem now has its own ticket, with the reports it covers.
 - **`shift`: the one-day shift.** The date moves by one day, not a swap of day and month:
   a Tuesday shown as a Monday, a client in Lisbon and one in Toronto who got different days, an
   invite that arrived before its booking. That is a time zone, not a date format. The desk
-  already read these five as a one-day move; they were still counted under `parser`.
+  already read these five as a one-day move. They stay counted under `parser`, where the desk
+  files them by tenant, and they have their own ticket.
 
 ## For the desk
 
