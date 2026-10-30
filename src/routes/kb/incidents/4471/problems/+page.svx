@@ -1,0 +1,52 @@
+---
+layout: runbook
+title: '#4471 · three problems, not one'
+owner: support desk
+status: draft
+reviewed: 2026-10-30
+signature: pawelurban
+---
+
+<script>
+  import ProblemTable from '#lib/kb/ProblemTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+
+  const repo = 'https://github.com/pawelurban/s01e03-what-it-shows/issues';
+  const tickets = { parser: `${repo}/1`, hint: `${repo}/2`, shift: `${repo}/3` };
+</script>
+
+[#4471](/kb/incidents/4471) is marked known: one bug, one fix queued. Read by tenant, form and
+symptom, the reports it merged are three problems. The queued parser fix closes only the first.
+
+<Callout kind="warn">
+Not one issue. Each problem now has its own ticket, with the reports it covers.
+</Callout>
+
+## What #4471 holds
+
+<ProblemTable ticket={4471} {tickets} />
+
+## How to tell them apart
+
+- **`parser`: the month-first parser.** The shared parser reads every date month first. Every
+  tenant on file writes the day first, so a booking for 7 April goes out on 4 July. Reports from
+  the app, by email, and from booking-v2 forms.
+- **`hint`: the booking-v3 date hint.** The booking-v3 form prints `MM/DD/YYYY` under its date
+  field. The tenant's people type what the hint says, and the form reads it the tenant's way,
+  day first. Same symptom, a different bug: the parser fix does not touch it. Only reports sent
+  through the form by booking-v3 tenants.
+- **`shift`: the one-day shift.** The date moves by one day, not a swap of day and month:
+  a Tuesday shown as a Monday, a client in Lisbon and one in Toronto who got different days, an
+  invite that arrived before its booking. That is a time zone, not a date format. The desk
+  already read these five as a one-day move; they were still counted under `parser`.
+
+## For the desk
+
+- Intake's tag is a guess from the reporter's browser. The tenant's locale and booking form
+  decide the cause; look them up before you merge.
+- Read the body before you merge into a big ticket. The same words ("wrong day") cover three
+  bugs here.
+- The export repeats rows across pages. Count by report id.
+
+<RenderStamp {signature} />
